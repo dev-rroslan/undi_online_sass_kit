@@ -1,0 +1,27 @@
+<section class="container max-w-3xl mx-auto my-16">
+
+  <h1 class="text-3xl font-bold">Onboarding - <%= @step.title %></h1>
+
+  <div class="w-full mt-8 mb-16">
+    <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+      <li :for={{step, idx} <- Enum.with_index(@steps, 1)} class={[
+        "flex items-center space-x-2.5",
+        !is_active?(step, @step) && "text-gray-500 dark:text-gray-400",
+        is_active?(step, @step) && "text-blue-600 dark:text-blue-500"
+      ]}>
+        <span class={[
+          "flex items-center justify-center w-8 h-8 border rounded-full shrink-0",
+          !is_active?(step, @step) && "border-gray-500 dark:border-gray-400",
+          is_active?(step, @step) && "border-blue-600 dark:border-blue-500"
+        ]}>
+          <%= idx %>
+        </span>
+        <span>
+          <h3 class="font-medium leading-tight"><%= step.title %></h3>
+        </span>
+      </li>
+    </ol>
+  </div>
+
+  <.live_component module={@component} id="step-component" account={@current_account} />
+</section>
