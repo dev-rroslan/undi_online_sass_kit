@@ -34,7 +34,7 @@ defmodule UndiOnline.MixProject do
     [
       {:bcrypt_elixir, "~> 3.1"},
       # ADDITIONAL PACKAGES
-      {:stripity_stripe, "~> 3.1"},
+      {:stripity_stripe, "~> 2.0"},
       {:eqrcode, "~> 0.1.10"},
       {:nimble_totp, "~> 1.0.0"},
       {:wallaby, "~> 0.30.6", runtime: false, only: :test},
